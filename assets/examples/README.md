@@ -2,20 +2,22 @@
 
 Completed states of the four animated scenes. These images do not animate.
 
-## Workspace assistant
+[Open the live HTML/SVG gallery](../../examples/index.html) for playback, pause, and timeline controls.
 
-![Workspace assistant with a completed search, two launch blockers, and source links.](assistant-tool-calls.png)
+## Workspace search · Blue
 
-## Sprint board
+![Workspace search with a launch date, time, and verified source citation.](assistant-tool-calls.png)
 
-![Sprint board with Sign-in polish in progress, Offline sync done, and 50 percent completion.](sprint-board.png)
+## Release pipeline · Indigo
 
-## Support triage
+![Tests, Build, and Live completed, with terminal checks and a deployment URL.](release-pipeline.png)
 
-![Support ticket classified as Exports and High priority, assigned to Maya, with a draft awaiting review.](support-triage.png)
+## Support routing · Pink
 
-## Inventory forecast
+![An export request classified and prioritized, assigned to Maya, with a reply draft ready for review.](support-triage.png)
 
-![Inventory forecast with a stockout warning and a suggested reorder of 240 units.](inventory-forecast.png)
+## Demand forecast · Emerald
+
+![Stock projected to run out on Oct 20, with a 240-unit reorder recommendation.](inventory-forecast.png)
 
 [Back to the skill README](../../README.md)

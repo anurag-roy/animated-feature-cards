@@ -2,12 +2,14 @@
 
 Use this catalog to invent a scene that fits the feature rather than reusing the same interaction repeatedly.
 
+Choose a pattern after deciding the actual card width. Around 400 px, prefer one clear question, request, object, or result. The item counts below are starting points; keep fewer items when that makes their labels and outcomes easier to read. Supporting SVG detail can make a focused scene rich without adding another pane of UI.
+
 ## 1. Streaming list / realtime activity
 
 Best for: visitors, logs, alerts, transactions, events, messages.
 
 Storyboard:
-1. Show 4-7 existing rows.
+1. Show 2-4 readable existing rows; use more only when the card has room.
 2. Introduce a new row at the top with a short fade/slide.
 3. Shift existing rows downward together.
 4. Fade or clip the oldest row at the bottom.
@@ -19,6 +21,7 @@ Implementation notes:
 - Animate the list container or use FLIP/layout transitions if available.
 - Keep row movement synchronized.
 - New content should feel incoming, not as if the whole list jumps.
+- Keep each row's identity intact and update related counts with the arrival.
 
 ## 2. Terminal / setup sequence
 
@@ -28,7 +31,7 @@ Storyboard:
 1. Empty prompt or one existing shell prompt.
 2. Type a command quickly but readably.
 3. Pause.
-4. Reveal 2-5 success/check rows one by one.
+4. Reveal 2-3 readable success/check rows one by one.
 5. Finish with a colored success state.
 6. Dwell, fade terminal contents, restart.
 
@@ -36,6 +39,7 @@ Implementation notes:
 - Do not simulate every character if it makes the loop too long; chunks are acceptable.
 - Cursor blink can run independently.
 - Keep code text monospace and compact.
+- A small terminal can sit below large SVG pipeline nodes. Synchronize each node's completion with its check, then show a readable deployment receipt.
 
 ## 3. Cursor click-through
 
@@ -66,12 +70,14 @@ Storyboard:
 
 Keep connector motion minimal and avoid sci-fi effects unless they fit the brand.
 
+Draw connectors as actual SVG paths. Place endpoint objects where those paths begin and end, and make the signal follow the path. For a multi-step process, use a few large labeled nodes with distinct pending and completed states instead of many tiny progress indicators.
+
 ## 5. Integration connect sequence
 
 Best for: integrations, imports, sources, destinations, linked accounts.
 
 Storyboard:
-1. Show 3-5 integration rows with neutral Connect buttons.
+1. Show 2-3 readable integration rows with neutral Connect buttons.
 2. Cursor selects one.
 3. Button passes through short loading state.
 4. It becomes Connected with a check.
@@ -94,6 +100,8 @@ Storyboard:
 7. Fade or slide conversation out before reset.
 
 Keep messages very short. The animation is a demo, not a transcript.
+
+For knowledge search, a focused variant can be clearer than a conversation: one question → custom SVG document stack and scan → one answer with a source citation. Keep the answer or date large enough to read, and give the citation a stable place below it. Do not add a sidebar and tool dashboard just to imply sophistication.
 
 ## 7. Card stack / attribution event
 
@@ -138,7 +146,8 @@ Storyboard:
 
 Implementation notes:
 - SVG circle `stroke-dashoffset` is usually enough.
-- Stagger starts by 250-600 ms.
+- Use larger intervals only when each ring is a separate explanatory beat; use a short stagger when the rings belong to one state change.
+- Keep the percentage and label readable. A single large ring can explain a feature better than several cramped rings.
 
 ## 10. Ambient map / globe
 
@@ -165,6 +174,8 @@ Storyboard:
 
 Do not continuously scramble numbers; viewers should be able to read them.
 
+For a forecast, show product context and a chart across the card's width, then reveal one recommendation below it. Distinguish actual and projected data, label units and meaningful dates, and keep the suggested quantity consistent with the signal. Place legend or supporting details where they will remain visible instead of under a bottom fade.
+
 ## 12. Hover-led static demo
 
 Best for: feature lists where continuous animation is unnecessary.
@@ -175,6 +186,8 @@ Storyboard:
 3. Supporting tooltip/detail appears.
 
 Use this to create pacing contrast next to more animated cards.
+
+Make the resting state informative on touch devices. If this is a real interaction, use immediate feedback and interruptible transitions; keep any autonomous demonstration separate from actual keyboard navigation.
 
 ## Scene-selection heuristic
 
